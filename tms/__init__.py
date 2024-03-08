@@ -4,6 +4,8 @@
     Get timestamp seconds for dates/times, seconds minutes, hours, days, weeks, months, years.
 """
 
+import time as t
+
 class period_times:
     days_year = 365 # Days in a year
     days_month = 30 # Days in a month
@@ -35,3 +37,5 @@ class time:
         return amount * timestamp_times.month
     def year(amount: float | None=0):
         return amount * timestamp_times.year
+    def now():
+        return t.time()
