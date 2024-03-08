@@ -1,8 +1,3 @@
-# Date Times
- Get timestamp seconds for dates/times, seconds minutes, hours, days, weeks, months, years
-
-# Example Code
-```
 from tms import period_times, timestamp_times, time
 
 # Period times
@@ -27,4 +22,3 @@ print(time.days(2)) # 172800
 print(time.week(2)) # 1209600
 print(time.month(2)) # 5184000
 print(time.year(2)) # 63072000
-```
