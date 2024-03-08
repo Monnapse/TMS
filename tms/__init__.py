@@ -14,7 +14,7 @@ class period_times:
     minute_hour = 60 # Minutes in an hour
     seconds_minute = 60 # Seconds in a minute
 
-class timestamp_times:
+class timestamp_seconds:
     """
         Period times in seconds, for timestamp
     """
@@ -24,18 +24,71 @@ class timestamp_times:
     month = period_times.days_month * period_times.hours_day * period_times.minute_hour * period_times.seconds_minute # Seconds in a week
     year = period_times.days_year * period_times.hours_day * period_times.minute_hour * period_times.seconds_minute # Seconds in a year
 
-class time:
-    def minutes(amount: float | None=0):
+class timestamp_times:
+    def minutes(amount: float | None=0) -> int:
+        """
+            Returns seconds in amount minutes
+        """
         return amount * period_times.seconds_minute
-    def hours(amount: float | None=0):
-        return amount * timestamp_times.hour
-    def days(amount: float | None=0):
-        return amount * timestamp_times.day
-    def week(amount: float | None=0):
-        return amount * timestamp_times.week
-    def month(amount: float | None=0):
-        return amount * timestamp_times.month
-    def year(amount: float | None=0):
-        return amount * timestamp_times.year
-    def now():
-        return t.time()
+    def hours(amount: float | None=0) -> int:
+        """
+            Returns seconds in amount hours
+        """
+        return amount * timestamp_seconds.hour
+    def days(amount: float | None=0) -> int:
+        """
+            Returns seconds in amount days
+        """
+        return amount * timestamp_seconds.day
+    def weeks(amount: float | None=0) -> int:
+        """
+            Returns seconds in amount weeks
+        """
+        return amount * timestamp_seconds.week
+    def months(amount: float | None=0) -> int:
+        """
+            Returns seconds in amount months
+        """
+        return amount * timestamp_seconds.month
+    def years(amount: float | None=0) -> int:
+        """
+            Returns seconds in amount years
+        """
+        return amount * timestamp_seconds.year
+    
+class time:
+    def now() -> int:
+        """
+            Returns the current time in seconds since the Epoch.
+        """
+        return int(t.time())
+    def minutes(amount: float | None=0) -> int:
+        """
+            Returns the current time in seconds since the Epoch subtracted by seconds in amount minutes
+        """
+        return time.now() - timestamp_times.minutes(amount)
+    def hours(amount: float | None=0) -> int:
+        """
+            Returns the current time in seconds since the Epoch subtracted by seconds in amount hours
+        """
+        return time.now() - timestamp_times.hours(amount) 
+    def days(amount: float | None=0) -> int:
+        """
+            Returns the current time in seconds since the Epoch subtracted by seconds in amount days
+        """
+        return time.now() - timestamp_times.days(amount) 
+    def weeks(amount: float | None=0) -> int:
+        """
+            Returns the current time in seconds since the Epoch subtracted by seconds in amount weeks
+        """
+        return time.now() - timestamp_times.weeks(amount) 
+    def months(amount: float | None=0) -> int:
+        """
+            Returns the current time in seconds since the Epoch subtracted by seconds in amount months
+        """
+        return time.now() - timestamp_times.months(amount) 
+    def years(amount: float | None=0) -> int:
+        """
+            Returns the current time in seconds since the Epoch subtracted by seconds in amount years
+        """
+        return time.now() - timestamp_times.years(amount) 
