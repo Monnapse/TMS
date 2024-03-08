@@ -26,7 +26,7 @@ class time_type:
     year = period_times.days_year * day # Seconds in a year
 
 class timestamp_times:
-    def time(amount: float | None=0, time_type: int=0) -> int:
+    def time(amount: float=0, time_type: int=0) -> int:
         """
             Returns seconds in amount time_type
         """
@@ -42,7 +42,7 @@ class time:
             Returns the current time in seconds since the Epoch.
         """
         return int(t.time())
-    def time(amount: float | None=0, time_type: int=0, direction: int=time_direction.away) -> int:
+    def time(amount: float=0, time_type: int=0, direction: int=time_direction.away) -> int:
         """
             Returns the current time in seconds since the Epoch subtracted or added by seconds in amount time_type
         """
